@@ -1,0 +1,12 @@
+<h1>Result</h1>
+<h2>For <%= @km %> km</h2>
+
+<%# for each result print co2 and slug %>
+<% @results.each do |result| %>
+  <span><%= result["name"] %> : </span>
+  <span><%= result["co2"] %> kgCO2e</span>
+  </br>
+<% end %>
+
+</br>
+<a href="/users">See your journeys</a>
