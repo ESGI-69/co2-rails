@@ -5,5 +5,5 @@
 <%= form_with url: "/result", method: :post do |form| %>
   <%= form.label :km, "Travel distance in km :" %>
   <%= form.number_field :km, in: 1.0..999999.0, step: 0.1 %>
-  <%= form.submit "Calculer" %>
+  <%= form.submit "Calculer", class: "btn btn-primary" %>
 <% end %>

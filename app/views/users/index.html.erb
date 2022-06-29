@@ -1,24 +1,36 @@
 <h1>Your journeys</h1>
 
 <%# @journeys.inspect %>
-
-<% @journeys.each do |journey| %>
-  <div class="users__container">
-    <h2>For <%= journey['distance'] %> km </h2>
-    <span>Walk : </span>
-    <span><%= journey["result_walk"] %> kgCO2e</span>
-    </br>
-    <span>Train : </span>
-    <span><%= journey["result_train"] %> kgCO2e</span>
-    </br>
-    <span>Electrical_car : </span>
-    <span><%= journey["result_electrical_car"] %> kgCO2e</span>
-    </br>
-    <span>Bus : </span>
-    <span><%= journey["result_bus"] %> kgCO2e</span>
-    </br>
-    <span>Car : </span>
-    <span><%= journey["result_car"] %> kgCO2e</span>
-    </br>
-  </div>
-<% end %>
+<div class="users">
+  <% if @journeys.empty? %>
+    <p>
+      No journeys
+      <a class="btn btn-primary" href="/calculate">Calculate one here !</a>
+    </p>
+    <% end %>
+    <% @journeys.each do |journey| %>
+      <div class="users__journey">
+        <h2>For <%= journey['distance'] %> km </h2>
+        <span>Walk : </span>
+        <span><%= journey["result_walk"] %> kgCO2e</span>
+        </br>
+        <span>Train : </span>
+        <span><%= journey["result_train"] %> kgCO2e</span>
+        </br>
+        <span>Electrical Car : </span>
+        <span><%= journey["result_electrical_car"] %> kgCO2e</span>
+        </br>
+        <span>Bus : </span>
+        <span><%= journey["result_bus"] %> kgCO2e</span>
+        </br>
+        <span>Car : </span>
+        <span><%= journey["result_car"] %> kgCO2e</span>
+        </br>
+        <%= form_with url: "/users", method: :post do |form| %>
+          <%= form.hidden_field :id, value: journey['id'] %>
+          <%= form.label :km, "Travel distance in km :" %>
+          <%= form.submit "Delete", class: "btn btn-danger" %>
+        <% end %>
+      </div>
+    <% end %>
+</div>

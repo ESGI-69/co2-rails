@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   post "result", to: "journeys#result"
   get "transports", to: "transports#index"
   get "users", to: "users#index"
+  post "users", to: "users#delete"
 end
  
