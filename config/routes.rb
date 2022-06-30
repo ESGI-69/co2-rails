@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   get "transports", to: "transports#index"
   post "transports", to: "transports#edit"
   get "users", to: "users#index"
-  post "users", to: "users#delete"
+  post "delete-j", to: "users#delete"
 end
  

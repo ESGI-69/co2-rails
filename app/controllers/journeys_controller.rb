@@ -7,6 +7,7 @@ class JourneysController < ApplicationController
 
   def result
     #kgCO2e
+    @isLog = signed_in?
     @km = params[:km]
     @transports = Transport.all
     @i = 0

@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
-  before_action :require_login
+  # before_action :require_login
   def index
     #@users = User.all
-    @journeys = Journey.where(user_id: current_user.id)
 
-    @formUrl = "/users?id="
+    @loggedIn = signed_in?
+
+    if @loggedIn === true
+      @journeys = Journey.where(user_id: current_user.id)
+      @formUrl = "/users?id="
+    end
     
   end
 
