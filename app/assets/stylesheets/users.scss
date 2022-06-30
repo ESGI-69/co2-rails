@@ -1,3 +1,18 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import 'variables';
+
+.users {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  flex-wrap: wrap;
+  &__journey {
+    margin: 8px 32px;
+    padding: 0 16px 16px 16px;
+    background-color: $color-white-200;
+    border-radius: 8px;
+    box-shadow: 2px 2px 4px $color-white-300
+  }
+}

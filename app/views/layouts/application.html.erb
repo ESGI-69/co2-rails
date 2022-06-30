@@ -13,13 +13,45 @@
   <body>
     <nav class="navbar">
       <ul class="navbar__container">
-        <li class="navbar__element"><%= link_to 'Home', root_path, class: "navbar__link navbar__link-first" %></li>
-        <%# link to about %>
-        <li class="navbar__element"><%= link_to 'About', about_path, class: "navbar__link" %></li>
-        <%# link to users %>
-        <li class="navbar__element"><%= link_to 'My journeys', users_path, class: "navbar__link" %></li>
-        <li class="navbar__element"><%= link_to 'Calculate', journeys_path, class: "navbar__link" %></li>
-        <li class="navbar__element"><%= link_to 'Debug : transports', transports_path, class: "navbar__link" %></li>
+        <% 
+          @loggedIn = signed_in?
+
+          if request.path === '/'
+            css_home = "navbar__link-active"
+          else
+            css_home = ""
+          end
+          if request.path === '/about'
+            css_about = "navbar__link-active"
+          else
+            css_about = ""
+          end
+          if request.path === '/users'
+            css_users = "navbar__link-active"
+          else
+            css_users= ""
+          end
+          if request.path === '/calculate' || request.path === '/result'
+            css_calculate = "navbar__link-active"
+          else
+            css_calculate = ""
+          end
+          if request.path === '/transports'
+            css_transports = "navbar__link-active"
+          else
+            css_transports = ""
+          end
+        %>
+
+        <li class="navbar__element"><%= link_to 'Home', root_path, class: "navbar__link #{css_home}" %></li>
+        <li class="navbar__element"><%= link_to 'About', about_path, class: "navbar__link #{css_about}" %></li>
+        <% if @loggedIn === true %>
+          <li class="navbar__element"><%= link_to 'My journeys', users_path, class: "navbar__link #{css_users}" %></li>
+        <% end %>
+        <li class="navbar__element"><%= link_to 'Calculate', journeys_path, class: "navbar__link #{css_calculate}" %></li>
+        <% if @loggedIn === true %>
+          <li class="navbar__element"><%= link_to 'Transports', transports_path, class: "navbar__link #{css_transports}" %></li>
+        <% end %>
       </ul>
     </nav>
     <main class="app">

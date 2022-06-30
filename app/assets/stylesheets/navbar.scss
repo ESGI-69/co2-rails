@@ -1,5 +1,7 @@
+@import 'variables';
+
 .navbar {
-  background-color: #075985;
+  background-color: $color-primary;
   display: flow-root;
   &__container{
     display: flex;
@@ -13,11 +15,14 @@
   &__link {
     max-height: 100%;
     max-width: 100%;
-    padding: 16px 16px;
-    color: white;
+    padding: 16px;
+    color: $color-white;
     text-decoration: none;
   }
   &__link:hover {
-    background-color: #0c4a6e;
+    background-color: $color-primary-900;
+  }
+  &__link-active {
+    background-color: $color-primary-700;
   }
 }

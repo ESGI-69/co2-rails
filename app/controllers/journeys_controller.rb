@@ -1,6 +1,8 @@
 class JourneysController < ApplicationController
   def index
     #@journeys = Journey.all
+    #get current user id
+    @isLog = signed_in?
   end
 
   def result
@@ -18,17 +20,19 @@ class JourneysController < ApplicationController
       @i += 1
     end
 
-    @journey = Journey.new
-    @journey.distance = @km
-    @journey.result_walk = @results[0]['co2']
-    @journey.result_train = @results[1]['co2']
-    @journey.result_electrical_car = @results[2]['co2']
-    @journey.result_bus = @results[3]['co2']
-    @journey.result_plane = @results[4]['co2']
-    @journey.result_car = @results[5]['co2']
-    @journey.user_id = current_user.id
-    @journey.save
-
+    #if user is log in, save journey to database
+    if @isLog === true
+      @journey = Journey.new
+      @journey.distance = @km
+      @journey.result_walk = @results[0]['co2']
+      @journey.result_train = @results[1]['co2']
+      @journey.result_electrical_car = @results[2]['co2']
+      @journey.result_bus = @results[3]['co2']
+      @journey.result_plane = @results[4]['co2']
+      @journey.result_car = @results[5]['co2']
+      @journey.user_id = current_user.id
+      @journey.save
+    end
   end
 
 end
