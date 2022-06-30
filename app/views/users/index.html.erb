@@ -28,7 +28,6 @@
         </br>
         <%= form_with url: "/users", method: :post do |form| %>
           <%= form.hidden_field :id, value: journey['id'] %>
-          <%= form.label :km, "Travel distance in km :" %>
           <%= form.submit "Delete", class: "btn btn-danger" %>
         <% end %>
       </div>

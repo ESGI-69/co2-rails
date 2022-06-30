@@ -1,3 +1,15 @@
 // Place all the styles related to the Transports controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.transports {
+  &__container-inputs{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  &__label{
+    margin-right: 8px;
+  }
+}

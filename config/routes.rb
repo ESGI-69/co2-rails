@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "calculate", to: "journeys#index", as: "journeys"
   post "result", to: "journeys#result"
   get "transports", to: "transports#index"
+  post "transports", to: "transports#edit"
   get "users", to: "users#index"
   post "users", to: "users#delete"
 end

@@ -8,6 +8,10 @@
   text-decoration: none;
 }
 
+.btn:hover {
+  cursor: pointer;
+}
+
 .btn-primary {
   background-color: $color-primary;
 
@@ -23,5 +27,12 @@
 
 .btn-danger:hover {
   background-color: $color-danger-700;
-  cursor: pointer;
+}
+
+.btn-success {
+  background-color: $color-success;
+}
+
+.btn-success:hover {
+  background-color: $color-success-700;
 }

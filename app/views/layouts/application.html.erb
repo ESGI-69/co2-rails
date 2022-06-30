@@ -13,8 +13,9 @@
   <body>
     <nav class="navbar">
       <ul class="navbar__container">
-      <%= request.path %>
         <% 
+          @loggedIn = signed_in?
+
           if request.path === '/'
             css_home = "navbar__link-active"
           else
@@ -44,9 +45,13 @@
 
         <li class="navbar__element"><%= link_to 'Home', root_path, class: "navbar__link #{css_home}" %></li>
         <li class="navbar__element"><%= link_to 'About', about_path, class: "navbar__link #{css_about}" %></li>
-        <li class="navbar__element"><%= link_to 'My journeys', users_path, class: "navbar__link #{css_users}" %></li>
+        <% if @loggedIn === true %>
+          <li class="navbar__element"><%= link_to 'My journeys', users_path, class: "navbar__link #{css_users}" %></li>
+        <% end %>
         <li class="navbar__element"><%= link_to 'Calculate', journeys_path, class: "navbar__link #{css_calculate}" %></li>
-        <li class="navbar__element"><%= link_to 'Transports', transports_path, class: "navbar__link #{css_transports}" %></li>
+        <% if @loggedIn === true %>
+          <li class="navbar__element"><%= link_to 'Transports', transports_path, class: "navbar__link #{css_transports}" %></li>
+        <% end %>
       </ul>
     </nav>
     <main class="app">
