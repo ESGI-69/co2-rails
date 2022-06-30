@@ -28,7 +28,7 @@
           <span>Car : </span>
           <span><%= journey["result_car"] %> kgCO2e</span>
           </br>
-          <%= form_with url: "/users", method: :post do |form| %>
+          <%= form_with url: "/delete-j", method: :post do |form| %>
             <%= form.hidden_field :id, value: journey['id'] %>
             <%= form.submit "Delete", class: "btn btn-danger" %>
           <% end %>
