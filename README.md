@@ -78,3 +78,7 @@ Start the project after rails db:drop
 ## Utilisation de la gem Crearance pour gérer l'authetification
 
 Doc : https://github.com/thoughtbot/clearance
+
+# Deploiement
+
+Lien : https://co2-rails.herokuapp.com/
